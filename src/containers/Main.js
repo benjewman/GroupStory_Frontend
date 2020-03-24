@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import StoryTitle from '../components/StoryTitle';
 
 function Main() {
     const [stories, setStories] = useState([]);
@@ -19,7 +20,15 @@ function Main() {
         return (
             <React.Fragment>
                 {/* style below so the title is bigger and underlined */}
-                {stories.map(story => <h3 key={story.id}>{story.title} - "{storyBlurb(story)}..."</h3>)}
+                {/* {stories.map(story => {
+                    return(
+                    <React.Fragment>
+                    <h3 key={story.id}>{story.title} </h3>  
+                    <h3 key={}>"{storyBlurb(story)}..."</h3>
+                    </React.Fragment>
+                    )
+                })} */}
+                {stories.map(story => <StoryTitle key={story.id} story={story}/>)}
             </React.Fragment>
         )
     }
