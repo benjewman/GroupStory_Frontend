@@ -10,11 +10,16 @@ function Main() {
         .then(tales => setStories(tales))
     }, []);
 
+    // function to return a small blurb (first 15 chars) from the first chapter of the story passed in
+    const storyBlurb = story => story.chapters[0].content.slice(0, 15);
+
+    // map through stories to create an h3 for each title and a blurb of its content
     const renderStories = () => {
         console.log(stories)
         return (
             <React.Fragment>
-                {stories.map(story => <h3 key={story.id} >"{story.title}"</h3>)}
+                {/* style below so the title is bigger and underlined */}
+                {stories.map(story => <h3 key={story.id}>{story.title} - "{storyBlurb(story)}..."</h3>)}
             </React.Fragment>
         )
     }
