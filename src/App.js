@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Main from './containers/Main';
 import WriteStory from './containers/WriteStory';
+import ShowStory from './containers/ShowStory';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route path="/stories/:storyId" component={ShowStory} />
           <Route path="/write" component={WriteStory} />
         </Switch>
       </BrowserRouter>
