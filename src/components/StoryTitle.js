@@ -13,7 +13,8 @@ function StoryTitle({story}) {
     const routeToStory = () => history.push(`/stories/${story.id}`);
 
     return (
-        // Make Title clickable and route to a show page
+        // Title routes to show page
+        // add css to make it look clickable
         <React.Fragment>
             <h3 className="storyTitle" onClick={routeToStory}>{title}</h3>
             <p className="storyBlurb">("{blurb}...")</p>
