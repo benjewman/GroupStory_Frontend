@@ -20,7 +20,7 @@ function ShowStory(props) {
             setTitle(storyData.title);
             setChapters(storyData.chapters); 
         })
-    }, []);
+    }, [storyId]);
 
     // Create array with all the chapters' contents in order
     const contentArray = chapters.map(chapter => chapter.content)

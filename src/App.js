@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
       <h1>Group Story</h1>
+      <button>Be Part of the Story</button>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
