@@ -21,6 +21,7 @@ function ShowStory(props) {
             setChapters(storyData.chapters); 
         })
     }, [storyId]);
+    // use storyId as dependency because it won't change on the same show page
 
     // Create array with all the chapters' contents in order
     const contentArray = chapters.map(chapter => chapter.content)
