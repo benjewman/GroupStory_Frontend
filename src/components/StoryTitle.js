@@ -3,7 +3,7 @@ import '../App.css';
 import { useHistory } from "react-router-dom";
 
 function StoryTitle({story}) {
-    const title = story.title
+    const title = story.title;
 
     const history = useHistory();
     // extract a small blurb (first 15 chars) from the first chapter
