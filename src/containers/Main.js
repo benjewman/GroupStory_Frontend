@@ -1,15 +1,15 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import StoryTitle from '../components/StoryTitle';
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Main() {
 
-    // const history = useHistory();
+    const history = useHistory();
     const fetchLocation = 'stories';
     const [stories, setStories] = useState([]);
 
-    // const routeToNew = () => history.push('/new');
+    const routeToNew = () => history.push('/new');
 
     useEffect(() => {
         fetch(`http://localhost:3000/${fetchLocation}`)
@@ -22,7 +22,8 @@ function Main() {
         console.log(stories)
         return (
             <React.Fragment>
-                {/* <button onClick={routeToNew}>Be Part of the Story</button> */}
+                <button onClick={routeToNew}>Be Part of the Story</button>
+                <br/>
                 {stories.map(story => <StoryTitle key={story.id} story={story}/>)}
             </React.Fragment>
         )
