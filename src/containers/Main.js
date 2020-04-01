@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react';
 import StoryTitle from '../components/StoryTitle';
 
 function Main() {
+
+    const fetchLocation = 'stories';
     const [stories, setStories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/stories')
+        fetch(`http://localhost:3000/${fetchLocation}`)
         .then(resp => resp.json())
         .then(tales => setStories(tales))
-    }, []);
+    }, [fetchLocation]);
 
     // map through stories to create a StoryTitle for each
     const renderStories = () => {
