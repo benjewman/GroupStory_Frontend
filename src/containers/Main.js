@@ -6,7 +6,9 @@ import { useHistory } from "react-router-dom";
 function Main() {
 
     const history = useHistory();
+    const path = history.location.pathname;
     const fetchLocation = 'stories';
+
     const [stories, setStories] = useState([]);
 
     const routeToNew = () => history.push('/new');
@@ -15,7 +17,7 @@ function Main() {
         fetch(`http://localhost:3000/${fetchLocation}`)
         .then(resp => resp.json())
         .then(tales => setStories(tales))
-    }, [fetchLocation]);
+    }, [path]);
 
     // map through stories to create a StoryTitle for each
     const renderStories = () => {
