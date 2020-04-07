@@ -18,6 +18,7 @@ function StoryTitle({story}) {
         <React.Fragment>
             <h3 className="storyTitle" onClick={routeToStory}>{title}</h3>
             <p className="storyBlurb">("{blurb}...")</p>
+            <br/>
         </React.Fragment>
     )
 }
