@@ -18,17 +18,19 @@ function WriteStory() {
     const renderPrompt = () => {
         // if there is a previous chapter, show it, tell the reader they're starting the story
 
-        
+
         return <h3>Start your chapter!</h3>
     }
     
     return (
         <div>
             <h2>{story.title}</h2>
-
-            {/* if there's a story in the works, add to that story */}
-            {/* otherwise program creates a title and user begins the story */}
             {renderPrompt()}
+
+            {/* Create a form for user to write a chapter */}
+            {/* Then post fetch that chapter */}
+
+
         </div>
     );
 }
