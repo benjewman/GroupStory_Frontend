@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 
 function WriteStory() {
+    const history = useHistory();
     // create state variable for the unfinished story or the new story
     // set this variable from the fetch
     const [story, setStory] = useState({});
     const [content, setContent] = useState("");
+    let contentWithStoryId = {content: content, story_id: story.id}
 
     useEffect(() => {
         fetch('http://localhost:3000/last')
@@ -18,7 +21,8 @@ function WriteStory() {
 
     const renderPrompt = () => {
         // if there is a previous chapter, show it, tell the reader they're starting the story
-
+        
+        // show the previous chapters
 
         return <h3>Start your chapter!</h3>
     }
@@ -29,7 +33,25 @@ function WriteStory() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(content);
+        let fetchObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(contentWithStoryId)
+        }
+
+        fetch('http://localhost:3000/chapters', fetchObj)
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.message) {
+                alert("There was an error posting this chapter");
+            } else {
+                history.push('/');
+            }
+        })
+
+
     }
     
     return (
