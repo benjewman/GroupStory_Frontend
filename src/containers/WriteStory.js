@@ -4,6 +4,7 @@ function WriteStory() {
     // create state variable for the unfinished story or the new story
     // set this variable from the fetch
     const [story, setStory] = useState({});
+    const [content, setContent] = useState("");
 
     useEffect(() => {
         fetch('http://localhost:3000/last')
@@ -21,6 +22,15 @@ function WriteStory() {
 
         return <h3>Start your chapter!</h3>
     }
+
+    const handleChange = event => {
+        setContent(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(content);
+    }
     
     return (
         <div>
@@ -29,7 +39,13 @@ function WriteStory() {
 
             {/* Create a form for user to write a chapter */}
             {/* Then post fetch that chapter */}
-
+            <form onSubmit={handleSubmit}>
+                Your chapter: 
+                <br/>
+                <textarea value={content} onChange={handleChange}/>
+                <br/>
+                <input type="submit" value="Submit"/>
+            </form>
 
         </div>
     );
