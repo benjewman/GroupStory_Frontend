@@ -31,7 +31,7 @@ function ShowStory(props) {
     return (
         <div>
             <h2>{title}</h2>
-            <p>{combinedContent}</p>
+            {combinedContent}
         </div>
     )
 }
