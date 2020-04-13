@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import StoryChapter from '../components/StoryChapter'
 
 function ShowStory(props) {
     // create variable for the storyId we can use to fetch
@@ -23,10 +24,8 @@ function ShowStory(props) {
     }, [storyId]);
     // use storyId as dependency because it won't change on the same show page
 
-    // Create array with all the chapters' contents in order
-    const contentArray = chapters.map(chapter => <p>{chapter.content}</p>);
-    // Join the array elements with a space
-    const combinedContent = <React.Fragment>{chapters.map(chapter => <p className="indentParagraph">{chapter.content}</p>)}</React.Fragment>
+    // Provide all the chapters within their own p tags
+    const combinedContent = <React.Fragment>{chapters.map(chapter => <p key={chapter.id} className="indentParagraph">{chapter.content}</p>)}</React.Fragment>
 
     return (
         <div>
