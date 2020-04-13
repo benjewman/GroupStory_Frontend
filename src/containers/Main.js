@@ -6,22 +6,19 @@ import { useHistory } from "react-router-dom";
 function Main() {
 
     const history = useHistory();
-    const path = history.location.pathname;
-    const fetchLocation = 'stories';
 
     const [stories, setStories] = useState([]);
 
     const routeToNew = () => history.push('/new');
 
     useEffect(() => {
-        fetch(`http://localhost:3000/${fetchLocation}`)
+        fetch(`http://localhost:3000/stories`)
         .then(resp => resp.json())
         .then(tales => setStories(tales))
-    }, [path]);
+    }, [history]);
 
     // map through stories to create a StoryTitle for each
     const renderStories = () => {
-        console.log(stories)
         return (
             <React.Fragment>
                 <button onClick={routeToNew}>Be Part of the Story</button>

@@ -10,18 +10,19 @@ function WriteStory() {
     let contentWithStoryId = {content: content, story_id: story.id}
 
     useEffect(() => {
+        
         fetch('http://localhost:3000/last')
         .then(resp => resp.json())
         .then(storyData => {
-            console.log(storyData);
             setStory(storyData);
         })
+
         // add a legitimate array dependency that won't create a loop
-    }, [])
+    }, [history])
 
     const renderPrompt = () => {
         // if there is a previous chapter, show it, tell the reader they're starting the story
-        
+
         // show the previous chapters
 
         return <h3>Start your chapter!</h3>

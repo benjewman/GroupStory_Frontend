@@ -24,9 +24,9 @@ function ShowStory(props) {
     // use storyId as dependency because it won't change on the same show page
 
     // Create array with all the chapters' contents in order
-    const contentArray = chapters.map(chapter => chapter.content)
+    const contentArray = chapters.map(chapter => chapter.content);
     // Join the array elements with a space
-    const combinedContent = contentArray.join(' ')
+    const combinedContent = contentArray.join(' ');
 
     return (
         <div>
