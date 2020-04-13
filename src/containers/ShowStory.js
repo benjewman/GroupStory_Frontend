@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import StoryChapter from '../components/StoryChapter'
 
 function ShowStory(props) {
     // create variable for the storyId we can use to fetch
