@@ -47,7 +47,7 @@ function WriteStory() {
         .then(resp => resp.json())
         .then(data => {
             if (data.message) {
-                alert("There was an error posting this chapter");
+                alert(data.message);
             } else {
                 history.push('/');
             }
@@ -64,7 +64,7 @@ function WriteStory() {
             {/* Create a form for user to write a chapter */}
             {/* Then post fetch that chapter */}
             <form onSubmit={handleSubmit}>
-                Your chapter: 
+                Your chapter (no less than 250 characters and no more than 500 characters): 
                 <br/>
                 <textarea value={content} onChange={handleChange}/>
                 <br/>
