@@ -55,6 +55,7 @@ function WriteStory() {
             if (data.message) {
                 alert(data.message);
             } else {
+                console.log(data);
                 history.push('/');
             }
         })
@@ -77,6 +78,7 @@ function WriteStory() {
                 Your email address (we'll email you when the story is finished):
                 <br/>
                 <input type="text" name="email" value={email} onChange={handleChange} />
+                <br/>
                 <input type="submit" value="Submit"/>
             </form>
 
