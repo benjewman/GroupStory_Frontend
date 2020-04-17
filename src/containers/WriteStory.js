@@ -7,7 +7,8 @@ function WriteStory() {
     // set this variable from the fetch
     const [story, setStory] = useState({});
     const [content, setContent] = useState("");
-    let contentWithStoryId = {content: content, story_id: story.id}
+    const [email, setEmail] = useState("");
+    let contentWithStoryId = {content: content, story_id: story.id, email: email}
 
     useEffect(() => {
 
@@ -30,7 +31,12 @@ function WriteStory() {
     }
 
     const handleChange = event => {
-        setContent(event.target.value);
+        if (event.target.name === "email") {
+            setEmail(event.target.value);
+        } else {
+            setContent(event.target.value);
+        }
+
     }
 
     const handleSubmit = (event) => {
@@ -66,8 +72,11 @@ function WriteStory() {
             <form onSubmit={handleSubmit}>
                 Your chapter (no less than 250 characters and no more than 500 characters): 
                 <br/>
-                <textarea value={content} onChange={handleChange}/>
+                <textarea name="content" value={content} onChange={handleChange}/>
                 <br/>
+                Your email address (we'll email you when the story is finished):
+                <br/>
+                <input type="text" name="email" value={email} onChange={handleChange} />
                 <input type="submit" value="Submit"/>
             </form>
 
