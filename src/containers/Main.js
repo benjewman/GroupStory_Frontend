@@ -2,6 +2,10 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import StoryTitle from '../components/StoryTitle';
 import { useHistory } from "react-router-dom";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import WriteStory from './WriteStory';
 
 function Main() {
 
@@ -21,7 +25,7 @@ function Main() {
     const renderStories = () => {
         return (
             <React.Fragment>
-                <button onClick={routeToNew}>Be Part of the Story</button>
+                {/* <button onClick={routeToNew}>Be Part of the Story</button> */}
                 <br/>
                 {stories.map(story => <StoryTitle key={story.id} story={story}/>)}
             </React.Fragment>
@@ -29,12 +33,20 @@ function Main() {
     }
     
     return (
-        <div>
-            <h2>Finished Stories</h2>
-            {/* fetches most recently finished stories */}
-            {/* try to batch the fetches later */}
-            {renderStories()}
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <h2>Finished Stories</h2>
+                    {/* fetches most recently finished stories */}
+                    {/* try to batch the fetches later */}
+                    {renderStories()}
+                </Col>
+                <Col>
+                    <WriteStory />
+                </Col>
+            </Row>
+            
+        </Container> 
     );
 }
 
