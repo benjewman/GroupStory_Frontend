@@ -60,3 +60,9 @@ h3.workingTitle {
 .indentParagraph {
   text-indent: 2em;
 }
+
+.borderClass {
+  border-style: inset;
+  /* make the padding responsive */
+  padding: 1em;
+}

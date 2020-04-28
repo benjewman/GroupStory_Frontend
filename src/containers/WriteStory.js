@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
+
 
 function WriteStory() {
     const history = useHistory();
@@ -56,7 +60,8 @@ function WriteStory() {
                 alert(data.message);
             } else {
                 console.log(data);
-                history.push('/');
+                // history.push('/');
+                window.location.reload();
             }
         })
 
@@ -64,28 +69,47 @@ function WriteStory() {
     }
     
     return (
-        <div>
+        <React.Fragment>
             <h2>Contribute to a Story in Progress</h2>
             <br/>
-            <h3 className="workingTitle">{story.title}</h3>
-            {renderPrompt()}
+            <div className="borderClass">
+                <h3 className="workingTitle">{story.title}</h3>
+                {renderPrompt()}
 
-            {/* Create a form for user to write a chapter */}
-            {/* Then post fetch that chapter */}
-            <form onSubmit={handleSubmit}>
-                Your chapter (no less than 250 characters and no more than 500 characters): 
-                <br/>
-                <textarea name="content" value={content} onChange={handleChange}/>
-                <br/>
-                Your email address (we'll email you when the story is finished):
-                <br/>
-                <input type="text" name="email" value={email} onChange={handleChange} />
-                <br/>
-                <input type="submit" value="Submit"/>
-            </form>
+                {/* Create a form for user to write a chapter */}
+                {/* Then post fetch that chapter */}
 
-        </div>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formBasicChapter">
+                        <Form.Label>Chapter</Form.Label>
+                        <Form.Control name="chapter" as="textarea" rows="8" value={content} onChange={handleChange} placeholder="Start writing your chapter..."/>
+                        <Form.Text>between 250-500 characters</Form.Text>
+                    </Form.Group>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control name="email" type="email" value={email} placeholder="Enter email" onChange={handleChange}/>
+                        <Form.Text className="text-muted">We'll email you when the story's finished.</Form.Text>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Submit</Button>
+                </Form>
+            </div>
+            
+
+        </React.Fragment>
     );
 }
 
 export default WriteStory;
+
+
+// <form onSubmit={handleSubmit}>
+//                 Your chapter (no less than 250 characters and no more than 500 characters): 
+//                 <br/>
+//                 <textarea name="content" value={content} onChange={handleChange}/>
+//                 <br/>
+//                 Your email address (we'll email you when the story is finished):
+//                 <br/>
+//                 <input type="text" name="email" value={email} onChange={handleChange} />
+//                 <br/>
+//                 <input type="submit" value="Submit"/>
+//             </form>
