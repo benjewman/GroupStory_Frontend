@@ -47,6 +47,11 @@ h3.storyTitle {
   cursor: pointer;
 }
 
+h3.workingTitle {
+  text-decoration: underline;
+  display: inline-block;
+}
+
 .storyBlurb {
   display: inline-block;
   padding: 5px;

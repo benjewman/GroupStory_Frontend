@@ -36,7 +36,7 @@ function Main() {
         <Container>
             <Row>
                 <Col>
-                    <h2>Finished Stories</h2>
+                    <h2>Read Finished Stories</h2>
                     {/* fetches most recently finished stories */}
                     {/* try to batch the fetches later */}
                     {renderStories()}

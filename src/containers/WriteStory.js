@@ -65,7 +65,9 @@ function WriteStory() {
     
     return (
         <div>
-            <h2>{story.title}</h2>
+            <h2>Contribute to a Story in Progress</h2>
+            <br/>
+            <h3 className="workingTitle">{story.title}</h3>
             {renderPrompt()}
 
             {/* Create a form for user to write a chapter */}
