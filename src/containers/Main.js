@@ -13,8 +13,6 @@ function Main() {
 
     const [stories, setStories] = useState([]);
 
-    const routeToNew = () => history.push('/new');
-
     useEffect(() => {
         fetch(`http://localhost:3000/stories`)
         .then(resp => resp.json())
@@ -35,7 +33,7 @@ function Main() {
     return (
         <Container>
             <Row>
-                <Col>
+                <Col >
                     <h2>Read Finished Stories</h2>
                     {/* fetches most recently finished stories */}
                     {/* try to batch the fetches later */}
