@@ -22,18 +22,18 @@ function Main() {
     // map through stories to create a StoryTitle for each
     const renderStories = () => {
         return (
-            <React.Fragment>
+            <div className="storyScroll">
                 {/* <button onClick={routeToNew}>Be Part of the Story</button> */}
                 <br/>
                 {stories.map(story => <StoryTitle key={story.id} story={story}/>)}
-            </React.Fragment>
+            </div>
         )
     }
     
     return (
-        <Container>
+        <Container >
             <Row>
-                <Col >
+                <Col>
                     <h2>Read Finished Stories</h2>
                     {/* fetches most recently finished stories */}
                     {/* try to batch the fetches later */}
