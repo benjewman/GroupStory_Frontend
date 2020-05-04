@@ -42,12 +42,10 @@ h1, h2 {
 }
 
 h3.storyTitle {
-  text-decoration: underline;
-  display: inline-block;
   cursor: pointer;
 }
 
-h3.workingTitle {
+h3 {
   text-decoration: underline;
   display: inline-block;
 }
