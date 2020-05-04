@@ -28,7 +28,7 @@ function ShowStory(props) {
 
     return (
         <div>
-            <h2>{title}</h2>
+            <h1 className="underlineTitle">{title}</h1>
             {combinedContent}
         </div>
     )

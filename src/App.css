@@ -70,5 +70,10 @@ h3 {
   overflow: scroll;
 }
 
+.underlineTitle {
+  text-decoration: underline;
+  margin-bottom: 6vh;
+}
+
 
 
