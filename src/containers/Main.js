@@ -31,7 +31,7 @@ function Main() {
     }
     
     return (
-        <Container >
+        <Container fluid >
             <Row>
                 <Col>
                     <h2>Read Finished Stories</h2>
